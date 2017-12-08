@@ -8,6 +8,7 @@ import android.webkit.WebViewClient
 import android.webkit.JavascriptInterface
 import kotlinx.android.synthetic.main.activity_kotlin.*
 import android.os.Build
+import android.webkit.WebChromeClient
 
 
 class KotlinActivity_Old : AppCompatActivity() {
@@ -25,7 +26,8 @@ class KotlinActivity_Old : AppCompatActivity() {
 
         myWebView.settings.javaScriptEnabled = true                     // STEP - 02
         myWebView.addJavascriptInterface(JavaScriptInterface(), J_OBJ)  // STEP - 03
-        myWebView.webViewClient = object : WebViewClient() {            // STEP - 04
+        myWebView.webChromeClient = object : WebChromeClient() {}       // STEP - 04
+        myWebView.webViewClient = object : WebViewClient() {            // STEP - 05
 
             override fun onPageFinished(view: WebView?, url: String?) {
                 if (url == BASE_URL)
@@ -34,7 +36,7 @@ class KotlinActivity_Old : AppCompatActivity() {
 
         } // End of fun WebViewClient()
 
-        myWebView.loadUrl(BASE_URL)                                     // STEP - 05
+        myWebView.loadUrl(BASE_URL)                                     // STEP - 06
 
         btn.setOnClickListener {
             msgToJS()
@@ -43,13 +45,13 @@ class KotlinActivity_Old : AppCompatActivity() {
     } // End of fun onCreate()
 
 
-    override fun onDestroy() {                                          // STEP - 06
+    override fun onDestroy() {                                          // STEP - 07
         myWebView.removeJavascriptInterface(J_OBJ)
         super.onDestroy()
     } // End of fun onDestroy()
 
 
-    private inner class JavaScriptInterface {                           // STEP - 07
+    private inner class JavaScriptInterface {                           // STEP - 08
         @JavascriptInterface
         fun msgFromJS(webMsg: String) {
             if (webMsg.isNullOrEmpty() || webMsg.isNullOrBlank())
@@ -60,7 +62,7 @@ class KotlinActivity_Old : AppCompatActivity() {
     } // End of JavaScriptInterface class
 
 
-    private fun injectJavaScriptFunction() {                            // STEP - 08
+    private fun injectJavaScriptFunction() {                            // STEP - 09
         myWebView.loadUrl("javascript: "
                 +"window.androidObj.msgToKT = function(msg) { "
                 + J_OBJ + ".msgFromJS(msg) " +
@@ -69,7 +71,7 @@ class KotlinActivity_Old : AppCompatActivity() {
     } // End of fun injectJavaScriptFunction()
 
 
-    fun msgToJS() {                                                     // STEP - 09
+    fun msgToJS() {                                                     // STEP - 10
         myWebView.evaluateJavascript("javascript: "
                 +"msgFromKT(\""+msg.text+"\");"
                 ,null

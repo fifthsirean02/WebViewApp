@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.webkit.JavascriptInterface
+import android.webkit.WebChromeClient
 import kotlinx.android.synthetic.main.activity_kotlin.*
 
 class KotlinActivity : AppCompatActivity() {
@@ -17,8 +18,9 @@ class KotlinActivity : AppCompatActivity() {
         WebView.setWebContentsDebuggingEnabled(true)                    // STEP - 02
         myWebView.settings.javaScriptEnabled = true                     // STEP - 03
         myWebView.addJavascriptInterface(JavaScriptInterface(), J_OBJ)  // STEP - 04
-        myWebView.webViewClient = object : WebViewClient() {}           // STEP - 05
-        myWebView.loadUrl(BASE_URL)                                     // STEP - 06
+        myWebView.webChromeClient = object : WebChromeClient() {}       // STEP - 05
+        myWebView.webViewClient = object : WebViewClient() {}           // STEP - 06
+        myWebView.loadUrl(BASE_URL)                                     // STEP - 07
 
         btn.setOnClickListener {
             sendToJS()
@@ -27,13 +29,13 @@ class KotlinActivity : AppCompatActivity() {
     } // End of fun onCreate()
 
 
-    override fun onDestroy() {                                          // STEP - 07
+    override fun onDestroy() {                                          // STEP - 08
         myWebView.removeJavascriptInterface(J_OBJ)
         super.onDestroy()
     } // End of fun onDestroy()
 
 
-    private inner class JavaScriptInterface {                           // STEP - 08
+    private inner class JavaScriptInterface {                           // STEP - 09
         @JavascriptInterface
         fun dispKt(webMsg: String) {
             if (webMsg.isNullOrEmpty() || webMsg.isNullOrBlank())
@@ -44,7 +46,7 @@ class KotlinActivity : AppCompatActivity() {
     } // End of JavaScriptInterface class
 
 
-    fun sendToJS() {                                                    // Step - 09
+    fun sendToJS() {                                                    // Step - 10
         myWebView.evaluateJavascript("javascript: "
                 +"dispJS('"+msg.text+"');"
                 ,null
