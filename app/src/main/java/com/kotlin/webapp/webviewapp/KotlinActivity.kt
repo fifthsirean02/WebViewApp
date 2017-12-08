@@ -1,14 +1,11 @@
 package com.kotlin.webapp.webviewapp
 
-import android.content.pm.ApplicationInfo
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.webkit.JavascriptInterface
 import kotlinx.android.synthetic.main.activity_kotlin.*
-import android.os.Build
-
 
 class KotlinActivity : AppCompatActivity() {
 
@@ -16,42 +13,29 @@ class KotlinActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kotlin)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {      // Verifying OS Version >= KitKat
 
-            if (0 != (applicationInfo.flags and ApplicationInfo.FLAG_DEBUGGABLE))
-                WebView.setWebContentsDebuggingEnabled(true)
-
-        } // End of if() condition
-
-        myWebView.settings.javaScriptEnabled = true                     // STEP - 02
-        myWebView.addJavascriptInterface(JavaScriptInterface(), J_OBJ)  // STEP - 03
-        myWebView.webViewClient = object : WebViewClient() {            // STEP - 04
-
-            override fun onPageFinished(view: WebView?, url: String?) {
-                if (url == BASE_URL)
-                    injectJavaScriptFunction()
-            } // End of fun onPageFinished()
-
-        } // End of fun WebViewClient()
-
-        myWebView.loadUrl(BASE_URL)                                     // STEP - 05
+        WebView.setWebContentsDebuggingEnabled(true)                    // STEP - 02
+        myWebView.settings.javaScriptEnabled = true                     // STEP - 03
+        myWebView.addJavascriptInterface(JavaScriptInterface(), J_OBJ)  // STEP - 04
+        myWebView.webViewClient = object : WebViewClient() {}           // STEP - 05
+        myWebView.loadUrl(BASE_URL)                                     // STEP - 06
 
         btn.setOnClickListener {
-            msgToJS()
+            sendToJS()
         }
 
     } // End of fun onCreate()
 
 
-    override fun onDestroy() {                                          // STEP - 06
+    override fun onDestroy() {                                          // STEP - 07
         myWebView.removeJavascriptInterface(J_OBJ)
         super.onDestroy()
     } // End of fun onDestroy()
 
 
-    private inner class JavaScriptInterface {                           // STEP - 07
+    private inner class JavaScriptInterface {                           // STEP - 08
         @JavascriptInterface
-        fun msgFromJS(webMsg: String) {
+        fun dispKt(webMsg: String) {
             if (webMsg.isNullOrEmpty() || webMsg.isNullOrBlank())
                 label.text = label.hint.toString()
             else
@@ -60,25 +44,16 @@ class KotlinActivity : AppCompatActivity() {
     } // End of JavaScriptInterface class
 
 
-    private fun injectJavaScriptFunction() {                            // STEP - 08
-        myWebView.loadUrl("javascript: "
-                +"window.androidObj.msgToKT = function(msg) { "
-                    + J_OBJ + ".msgFromJS(msg) " +
-                " }"
-        )
-    } // End of fun injectJavaScriptFunction()
-
-
-    fun msgToJS() {                                                     // STEP - 09
+    fun sendToJS() {                                                    // Step - 09
         myWebView.evaluateJavascript("javascript: "
-                +"msgFromKT(\""+msg.text+"\");"
+                +"dispJS('"+msg.text+"');"
                 ,null
         )
-    } // End of fun msgToJS()
+    }
 
 
     companion object {                                                  // STEP - 01
-        private val J_OBJ = "JAVASCRIPT_OBJ"
+        private val J_OBJ = "KT"
         private val BASE_URL = "file:///android_asset/WebViewApp/index.html"
     } // End of Companion Object
 
