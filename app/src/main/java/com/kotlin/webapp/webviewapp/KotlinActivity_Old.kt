@@ -52,6 +52,7 @@ class KotlinActivity_Old : AppCompatActivity() {
 
         btn.setOnClickListener {
             msgToJS()
+            msg.setText("")
         }
 
     } // End of fun onCreate()

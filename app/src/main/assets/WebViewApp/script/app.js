@@ -5,9 +5,11 @@ var label = document.getElementById('label').innerHTML;
 function sendToKT() {                                 // Calling Injected Kotlin function
   var msg = document.getElementById('msg').value;
   if (jObj != window) {
+    document.getElementById('msg').value = "";
     jObj.dispKt(msg);
   } else {
     label = "Msg from Web Page...";
+    document.getElementById('msg').value = "";
     dispJS(msg);
   }
 }

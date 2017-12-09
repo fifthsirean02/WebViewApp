@@ -4,6 +4,7 @@ window.androidObj = function AndroidClass(){};
 
 function sendToKT() {                                 // Calling Injected Kotlin function
   var msg = document.getElementById('msg').value;
+  document.getElementById('msg').value = "";
   window.androidObj.msgToKT(msg);
 }
 
