@@ -3,7 +3,11 @@ var label = document.getElementById('label').innerHTML;
 
 function sendToKT() {                                 // Calling Injected Kotlin function
   var msg = document.getElementById('msg').value;
-  KT.dispKt(msg);
+  try {
+    KT.dispKt(msg);
+  } catch(err) {
+    dispJS(msg);
+  }
 }
 
 function dispJS(msg) {                                // Called By Kotlin
