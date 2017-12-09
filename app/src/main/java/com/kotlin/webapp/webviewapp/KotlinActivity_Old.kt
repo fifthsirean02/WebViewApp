@@ -1,6 +1,8 @@
 package com.kotlin.webapp.webviewapp
 
+import android.content.Context
 import android.content.pm.ApplicationInfo
+import android.net.ConnectivityManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebView
@@ -9,6 +11,7 @@ import android.webkit.JavascriptInterface
 import kotlinx.android.synthetic.main.activity_kotlin.*
 import android.os.Build
 import android.webkit.WebChromeClient
+import android.widget.Toast
 
 
 class KotlinActivity_Old : AppCompatActivity() {
@@ -39,7 +42,13 @@ class KotlinActivity_Old : AppCompatActivity() {
 
         } // End of fun WebViewClient()
 
-        myWebView.loadUrl(BASE_URL)                                     // STEP - 06
+        if (isNetworkAvailable) {                                       // STEP - 06
+            myWebView.loadUrl(BASE_URL)
+            toast("Online Mode : Loading Live Page ...")
+        } else {
+            myWebView.loadUrl(INNER_URL)
+            toast("Offline Mode : Loading App Page ...")
+        }
 
         btn.setOnClickListener {
             msgToJS()
@@ -84,7 +93,19 @@ class KotlinActivity_Old : AppCompatActivity() {
 
     companion object {                                                  // STEP - 01
         private val J_OBJ = "JAVASCRIPT_OBJ"
-        private val BASE_URL = "file:///android_asset/WebViewApp/index.html"
+        private val INNER_URL = "file:///android_asset/WebViewApp/index.html"
+        private val BASE_URL = "https://fifthsirean02.github.io/webviewpage1/"
     } // End of Companion Object
+
+    private val isNetworkAvailable: Boolean
+        get() {
+            val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val activeNetworkInfo = connectivityManager.activeNetworkInfo
+            return activeNetworkInfo != null && activeNetworkInfo.isConnected
+        }
+
+    fun toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
+        Toast.makeText(this.applicationContext, message, duration).show()
+    }
 
 }
