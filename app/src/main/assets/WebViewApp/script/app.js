@@ -1,11 +1,12 @@
-var label = document.getElementById('label').innerHTML;
+var jObj = window;        // Window Object to Manipulate from Kotlin
 
+var label = document.getElementById('label').innerHTML;
 
 function sendToKT() {                                 // Calling Injected Kotlin function
   var msg = document.getElementById('msg').value;
-  try {
-    KT.dispKt(msg);
-  } catch(err) {
+  if (jObj != window) {
+    jObj.dispKt(msg);
+  } else {
     label = "Msg from Web Page...";
     dispJS(msg);
   }

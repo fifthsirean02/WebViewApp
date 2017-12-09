@@ -30,8 +30,11 @@ class KotlinActivity_Old : AppCompatActivity() {
         myWebView.webViewClient = object : WebViewClient() {            // STEP - 05
 
             override fun onPageFinished(view: WebView?, url: String?) {
-                if (url == BASE_URL)
+                if (url == BASE_URL) {
+                    var javaScript: String = "javascript: try { jObj = eval($J_OBJ); } catch(err) { jObj = window; }"
+                    myWebView.loadUrl(javaScript)
                     injectJavaScriptFunction()
+                }
             } // End of fun onPageFinished()
 
         } // End of fun WebViewClient()
