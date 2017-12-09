@@ -1,4 +1,20 @@
+var jObj = window;        // Window Object to Manipulate from Kotlin
 var label = document.getElementById('label').innerHTML;
+
+
+setTimeout(function() {   // Show a Greet Message after 0.4 sec of loading JS
+  jObj.setLabel();
+}, 400);
+
+function setLabel() {
+  if (jObj == window)
+    label = "Msg from Web Page...";
+  else
+    label = "Msg from Android...";
+
+  document.getElementById('label').innerHTML = label;
+}
+
 
 window.androidObj = function AndroidClass(){};
 

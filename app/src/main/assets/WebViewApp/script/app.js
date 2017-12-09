@@ -1,6 +1,18 @@
 var jObj = window;        // Window Object to Manipulate from Kotlin
-
 var label = document.getElementById('label').innerHTML;
+
+setTimeout(function() {   // Show a Greet Message after 0.4 sec of loading JS
+  setLabel();
+}, 400);
+
+function setLabel() {
+  if (jObj != window)
+    label = "Msg from Android...";
+  else
+    label = "Msg from Web Page...";
+
+  document.getElementById('label').innerHTML = label;
+}
 
 function sendToKT() {                                 // Calling Injected Kotlin function
   var msg = document.getElementById('msg').value;
