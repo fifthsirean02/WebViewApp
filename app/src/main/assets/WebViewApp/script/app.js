@@ -6,6 +6,7 @@ function sendToKT() {                                 // Calling Injected Kotlin
   try {
     KT.dispKt(msg);
   } catch(err) {
+    label = "Msg from Web Page...";
     dispJS(msg);
   }
 }
