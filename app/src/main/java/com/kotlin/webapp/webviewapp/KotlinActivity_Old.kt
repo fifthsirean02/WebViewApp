@@ -81,7 +81,7 @@ class KotlinActivity_Old : AppCompatActivity() {
 
     companion object {                                                  // STEP - 01
         private val J_OBJ = "JAVASCRIPT_OBJ"
-        private val BASE_URL = "file:///android_asset/WebViewApp/index.html"
+        private val BASE_URL = "file:///android_asset/WebViewApp/webviewapp1.html"
     } // End of Companion Object
 
 }
