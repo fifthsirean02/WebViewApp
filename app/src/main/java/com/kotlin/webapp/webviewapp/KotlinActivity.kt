@@ -24,8 +24,10 @@ class KotlinActivity : AppCompatActivity() {
         myWebView.webChromeClient = object : WebChromeClient() {}           // STEP - 05
         myWebView.webViewClient = object : WebViewClient() {                // STEP - 06
             override fun onPageFinished(view: WebView?, url: String?) {     // STEP - 06
-                var javaScript: String = "javascript: try { jObj = eval($J_OBJ); } catch(err) { jObj = window; }"
-                myWebView.loadUrl(javaScript)
+                if (url == BASE_URL || url == INNER_URL) {
+                    var javaScript: String = "javascript: try { jObj = eval($J_OBJ); } catch(err) { jObj = window; }"
+                    myWebView.loadUrl(javaScript)
+                }
             }
         }
 
