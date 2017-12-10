@@ -3,7 +3,11 @@ WebView App with Kotlin.
 
 An Android App to create a WebWiew to display Web Page from local storage.
 
-Injecting the JavaScript with kotlin's functions in JavaScript to exchange message between JavaScript and Kotlin.
+Inject Kotlin's custom functions in JavaScript to exchange message between JavaScript and Kotlin.
+
+Overwrite the variable JObj containing a Window Object by re-assigining it with a Kotlin Object's name (in String) by putting it under pre-defined ECMA6 function : eval() during assignment to make name (a String) into a String Template.
+
+Use the newely obtained JObj to check whether the page is loaded in the App or Not.
 
 
 # index.html
