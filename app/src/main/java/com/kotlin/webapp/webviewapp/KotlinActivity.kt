@@ -30,6 +30,7 @@ class KotlinActivity : AppCompatActivity() {
                 if (url == BASE_URL || url == INNER_URL) {
                     var javaScript: String = "javascript: try { jObj = eval($J_OBJ); } catch(err) { jObj = window; }"
                     myWebView.loadUrl(javaScript)
+                    ktPage.visibility = View.VISIBLE
                 } else {
                     ktPage.visibility = View.GONE
                 }
@@ -38,11 +39,9 @@ class KotlinActivity : AppCompatActivity() {
 
         if (isNetworkAvailable) {                                           // STEP - 08
             myWebView.loadUrl(BASE_URL)
-            ktPage.visibility = View.VISIBLE
             toast("Online Mode : Loading Live Page ...")
         } else {
             myWebView.loadUrl(INNER_URL)
-            ktPage.visibility = View.VISIBLE
             toast("Offline Mode : Loading App Page ...")
         }
 
