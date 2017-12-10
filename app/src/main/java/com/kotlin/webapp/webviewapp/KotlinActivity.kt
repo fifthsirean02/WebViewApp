@@ -17,7 +17,11 @@ class KotlinActivity : AppCompatActivity() {
 
 
         WebView.setWebContentsDebuggingEnabled(true)                        // STEP - 02
+        myWebView.settings.setAppCachePath(this.applicationContext.cacheDir.absolutePath)
+        myWebView.settings.allowFileAccess = true
+        myWebView.settings.setAppCacheEnabled(true)
         myWebView.settings.javaScriptEnabled = true                         // STEP - 03
+        myWebView.settings.cacheMode = WebSettings.LOAD_DEFAULT
         myWebView.addJavascriptInterface(JavaScriptInterface(), J_OBJ)      // STEP - 04
         myWebView.webChromeClient = object : WebChromeClient() {}           // STEP - 05
         myWebView.webViewClient = object : WebViewClient() {                // STEP - 06
@@ -81,7 +85,7 @@ class KotlinActivity : AppCompatActivity() {
 
     companion object {                                                      // STEP - 01
         private val J_OBJ = "KT"
-        private val INNER_URL = "file:///android_asset/WebViewApp/index1.html"
+        private val INNER_URL = "file:///android_asset/WebViewApp/index.html"
         private val BASE_URL = "https://fifthsirean02.github.io/WebViewApp/"
     } // End of Companion Object
 
