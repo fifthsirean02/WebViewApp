@@ -19,36 +19,47 @@ class KotlinActivity : AppCompatActivity() {
         WebView.setWebContentsDebuggingEnabled(true)                        // STEP - 02
         myWebView.settings.setAppCachePath(this.applicationContext.cacheDir.absolutePath)
         myWebView.settings.allowFileAccess = true
+        myWebView.settings.domStorageEnabled = true
         myWebView.settings.setAppCacheEnabled(true)
         myWebView.settings.javaScriptEnabled = true                         // STEP - 03
         myWebView.settings.cacheMode = WebSettings.LOAD_DEFAULT
         myWebView.addJavascriptInterface(JavaScriptInterface(), J_OBJ)      // STEP - 04
         myWebView.webChromeClient = object : WebChromeClient() {}           // STEP - 05
         myWebView.webViewClient = object : WebViewClient() {                // STEP - 06
+            var err_type = 0
 
             override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
-                ktPage.visibility = View.GONE
+                if (myWebView.settings.cacheMode == WebSettings.LOAD_CACHE_ELSE_NETWORK && request?.url.toString() == BASE_URL) {
+                    myWebView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
+                    myWebView.loadUrl(INNER_URL)
+                } else {
+                    ktPage.visibility = View.GONE
+                    toast("404 - Page Not Found")
+                    err_type++
+                }
             }
 
             override fun onPageFinished(view: WebView?, url: String?) {     // STEP - 07
-                if (url == BASE_URL || url == INNER_URL) {
-                    var javaScript: String = "javascript: try { jObj = eval($J_OBJ); } catch(err) { jObj = window; }"
+                var javaScript: String = "javascript: try { jObj = eval($J_OBJ); } catch(err) { jObj = window; }"
+                if (url == BASE_URL && myWebView.settings.cacheMode == WebSettings.LOAD_DEFAULT) {
                     myWebView.loadUrl(javaScript)
-                } else {
-                    ktPage.visibility = View.GONE
+                    toast("Online Mode : Loading Live Page ...")
+                } else if (url == BASE_URL && myWebView.settings.cacheMode == WebSettings.LOAD_CACHE_ELSE_NETWORK) {
+                    myWebView.loadUrl(javaScript)
+                    toast("Offline Mode : Loading Cached Page ...")
+                } else if (url == INNER_URL && myWebView.settings.cacheMode == WebSettings.LOAD_NO_CACHE) {
+                    myWebView.clearCache(true)
+                    myWebView.loadUrl(javaScript)
+                    if (err_type == 0)
+                        toast("Offline Mode : Loading App Page ...")
                 }
             }
         }
 
-        if (isNetworkAvailable) {                                           // STEP - 08
-            myWebView.loadUrl(BASE_URL)
-            ktPage.visibility = View.VISIBLE
-            toast("Online Mode : Loading Live Page ...")
-        } else {
-            myWebView.loadUrl(INNER_URL)
-            ktPage.visibility = View.VISIBLE
-            toast("Offline Mode : Loading App Page ...")
+        if (!isNetworkAvailable) {
+            myWebView.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
         }
+        myWebView.loadUrl(BASE_URL)
 
         btn.setOnClickListener {
             sendToJS()
