@@ -12,6 +12,7 @@ function setLabel() {
     label = "Msg from Web Page...";
 
   document.getElementById('label').innerHTML = label;
+  document.getElementById('label').style.visibility = "visible";
 }
 
 function sendToKT() {                                 // Calling Injected Kotlin function

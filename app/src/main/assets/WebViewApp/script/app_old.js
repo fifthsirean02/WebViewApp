@@ -4,7 +4,7 @@ var label = document.getElementById('label').innerHTML;
 
 setTimeout(function() {   // Show a Greet Message after 0.4 sec of loading JS
   jObj.setLabel();
-}, 400);
+}, 500);
 
 function setLabel() {
   if (jObj == window)
@@ -13,6 +13,7 @@ function setLabel() {
     label = "Msg from Android...";
 
   document.getElementById('label').innerHTML = label;
+  document.getElementById('label').style.visibility = "visible";
 }
 
 

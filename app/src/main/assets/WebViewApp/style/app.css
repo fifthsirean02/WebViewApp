@@ -12,6 +12,7 @@ h2 {
     color: grey;
     font-size: 20px;
     display: inline-block;
+    visibility: hidden;
 }
 
 #msg {

@@ -4,10 +4,8 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.webkit.WebView
-import android.webkit.WebViewClient
-import android.webkit.JavascriptInterface
-import android.webkit.WebChromeClient
+import android.view.View
+import android.webkit.*
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_kotlin.*
 
@@ -23,19 +21,28 @@ class KotlinActivity : AppCompatActivity() {
         myWebView.addJavascriptInterface(JavaScriptInterface(), J_OBJ)      // STEP - 04
         myWebView.webChromeClient = object : WebChromeClient() {}           // STEP - 05
         myWebView.webViewClient = object : WebViewClient() {                // STEP - 06
-            override fun onPageFinished(view: WebView?, url: String?) {     // STEP - 06
+
+            override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
+                ktPage.visibility = View.GONE
+            }
+
+            override fun onPageFinished(view: WebView?, url: String?) {     // STEP - 07
                 if (url == BASE_URL || url == INNER_URL) {
                     var javaScript: String = "javascript: try { jObj = eval($J_OBJ); } catch(err) { jObj = window; }"
                     myWebView.loadUrl(javaScript)
+                } else {
+                    ktPage.visibility = View.GONE
                 }
             }
         }
 
-        if (isNetworkAvailable) {                                           // STEP - 07
+        if (isNetworkAvailable) {                                           // STEP - 08
             myWebView.loadUrl(BASE_URL)
+            ktPage.visibility = View.VISIBLE
             toast("Online Mode : Loading Live Page ...")
         } else {
             myWebView.loadUrl(INNER_URL)
+            ktPage.visibility = View.VISIBLE
             toast("Offline Mode : Loading App Page ...")
         }
 
@@ -47,13 +54,13 @@ class KotlinActivity : AppCompatActivity() {
     } // End of fun onCreate()
 
 
-    override fun onDestroy() {                                              // STEP - 08
+    override fun onDestroy() {                                              // STEP - 09
         myWebView.removeJavascriptInterface(J_OBJ)
         super.onDestroy()
     } // End of fun onDestroy()
 
 
-    private inner class JavaScriptInterface {                               // STEP - 09
+    private inner class JavaScriptInterface {                               // STEP - 10
         @JavascriptInterface
         fun dispKt(webMsg: String) {
             if (webMsg.isNullOrEmpty() || webMsg.isNullOrBlank())
@@ -64,7 +71,7 @@ class KotlinActivity : AppCompatActivity() {
     } // End of JavaScriptInterface class
 
 
-    fun sendToJS() {                                                        // Step - 10
+    fun sendToJS() {                                                        // Step - 11
         myWebView.evaluateJavascript("javascript: "
                 +"dispJS('"+msg.text+"');"
                 ,null
