@@ -11,4 +11,4 @@ WebView Page 1
 
 A sample page to test my project : WebViewApp
 
-But first check this page @ https://fifthsirean02.github.io/WebViewApp/
+Check this page out @ https://fifthsirean02.github.io/WebViewApp/
