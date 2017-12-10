@@ -7,7 +7,7 @@ Inject Kotlin's custom functions in JavaScript to exchange message between JavaS
 
 Overwrite the variable JObj containing a Window Object by re-assigining it with a Kotlin Object's name (in String) by putting it under pre-defined ECMA6 function : eval() during assignment to make name (a String) into a String Template.
 
-Use the newely obtained JObj to check whether the page is loaded in the App or Not.
+Use the newly obtained jObj to check whether the page is loaded in the App or Not.
 
 
 # index.html
