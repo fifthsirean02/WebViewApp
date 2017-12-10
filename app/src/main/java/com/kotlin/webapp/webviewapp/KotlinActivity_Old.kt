@@ -33,7 +33,7 @@ class KotlinActivity_Old : AppCompatActivity() {
         myWebView.webViewClient = object : WebViewClient() {            // STEP - 05
 
             override fun onPageFinished(view: WebView?, url: String?) {
-                if (url == BASE_URL) {
+                if (url == BASE_URL || url == INNER_URL) {
                     var javaScript: String = "javascript: try { jObj = eval($J_OBJ); } catch(err) { jObj = window; }"
                     myWebView.loadUrl(javaScript)
                     injectJavaScriptFunction()
@@ -95,7 +95,7 @@ class KotlinActivity_Old : AppCompatActivity() {
     companion object {                                                  // STEP - 01
         private val J_OBJ = "JAVASCRIPT_OBJ"
         private val INNER_URL = "file:///android_asset/WebViewApp/index.html"
-        private val BASE_URL = "https://fifthsirean02.github.io/webviewpage1/"
+        private val BASE_URL = "https://fifthsirean02.github.io/WebViewApp/"
     } // End of Companion Object
 
     private val isNetworkAvailable: Boolean
