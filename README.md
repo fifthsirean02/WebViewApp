@@ -18,5 +18,4 @@ A sample page to test my project : WebViewApp
 Check this page out @ https://fifthsirean02.github.io/WebViewApp/
 
 # Screenshots
-![Pic-1](./screenshorts/Pic-1.png | width=300)
-
+<img src="./screenshorts/Pic-1.png" width="200" height="400" /
