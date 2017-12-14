@@ -3,9 +3,9 @@ WebView App with **Kotlin**.
 
 An Android App to create a _**WebWiew**_ to display _**Web Page**_ from _local storage_.
 
-Inject Kotlin's custom functions in JavaScript to exchange message between JavaScript and Kotlin.
+Inject Kotlin's custom functions in ECMA Script to exchange message between JavaScript and Kotlin.
 
-Re-assign the variable **`jObj`** containing a Window Object with a Kotlin's Object name (in String) by putting it under pre-defined ECMA6 function : `eval()` during assignment to make name (a String) into a String Template.
+Re-assign the variable **`jObj`** containing a Window Object with a Kotlin's Object name (in String) by putting it under pre-defined ECMA Script v6's function : `eval()` during assignment to make name (a String) into a String Template.
 
 Use the newly obtained **`jObj`** to check whether the page is loaded in the App or not.
 
