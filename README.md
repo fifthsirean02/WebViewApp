@@ -19,5 +19,4 @@ Check this page out @ https://fifthsirean02.github.io/WebViewApp/
 
 # Screenshots
 ![Pic-1](./screenshorts/Pic-1.png | width=300)
-![Pic-2](./screenshorts/Pic-2.png | width=300)
-![Pic-3](./screenshorts/Pic-3.png | width=300)
+
