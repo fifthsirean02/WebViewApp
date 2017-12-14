@@ -16,7 +16,7 @@ WebView Page 1
 
 A sample page to test my project : WebViewApp
 
-Check this page out @ ![WebViewApp Page](https://nishantsinghdev.github.io/WebViewApp/)
+Check this page out @ ![Project's Page](https://nishantsinghdev.github.io/WebViewApp/)
 
 ---
 
