@@ -18,6 +18,6 @@ A sample page to test my project : WebViewApp
 Check this page out @ https://fifthsirean02.github.io/WebViewApp/
 
 # Screenshots
-![Pic-1](/screenshorts/Pic-1.png =1320x480)
-![Pic-2](/screenshorts/Pic-2.png =1320x480)
-![Pic-3](/screenshorts/Pic-3.png =1320x480)
+![Pic-1](./screenshorts/Pic-1.png =1320x480)
+![Pic-2](./screenshorts/Pic-2.png =1320x480)
+![Pic-3](./screenshorts/Pic-3.png =1320x480)
