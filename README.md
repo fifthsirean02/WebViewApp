@@ -1,7 +1,7 @@
 # WebViewApp
 WebView App with **Kotlin**.
 
-An Android App to create a _**WebWiew**_ to display _**Web Page**_ from _local storage_.
+An Android App in **Kotlin** to create a _**WebWiew**_ to display _**Web Page**_ from _online / cache memory / local storage_.
 
 Inject Kotlin's custom functions in ECMA Script to exchange message between JavaScript and Kotlin.
 
