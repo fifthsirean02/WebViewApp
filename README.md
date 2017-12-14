@@ -9,6 +9,7 @@ Re-assign the variable jObj containing a Window Object with a Kotlin's Object na
 
 Use the newly obtained jObj to check whether the page is loaded in the App or Not.
 
+---
 
 # index.html
 WebView Page 1
@@ -17,7 +18,11 @@ A sample page to test my project : WebViewApp
 
 Check this page out @ https://nishantsinghdev.github.io/WebViewApp/
 
+---
+
 # Screenshots
-Pic - 1 | Pic - 2 | Pic - 3
-------- | ------- | -------
-<img src="./screenshorts/Pic-1.png" width="300" /> | <img src="./screenshorts/Pic-2.png" width="300" /> | <img src="./screenshorts/Pic-3.png" width="300" />
+|  Web App - 1  |  Web App - 2  |  Web App - 3  |
+| :-----------: | :-----------: | :-----------: |
+| ![Pic-1](./screenshots/WebApp-1.png) | ![Pic-2](./screenshots/WebApp-2.png) | ![Pic-3](./screenshots/WebApp-3.png) |
+
+---
