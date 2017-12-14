@@ -18,6 +18,8 @@ A sample page to test my project : WebViewApp
 Check this page out @ https://fifthsirean02.github.io/WebViewApp/
 
 # Screenshots
-<img src="./screenshorts/Pic-1.png" width="300" /> |
-<img src="./screenshorts/Pic-2.png" width="300" /> |
+<img src="./screenshorts/Pic-1.png" width="300" />
+<img src="./screenshorts/Pic-2.png" width="300" />
 <img src="./screenshorts/Pic-3.png" width="300" />
+Pic-1 | Pic-2 | Pic-3
+----- | ----- | -----
