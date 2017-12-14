@@ -19,4 +19,4 @@ Check this page out @ https://fifthsirean02.github.io/WebViewApp/
 
 # Screenshots
 ![GitHub Logo](/screenshorts/Pic-1.png)
-Format: ![Alt Text](url)
+
