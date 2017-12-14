@@ -14,7 +14,7 @@ Use the newly obtained **`jObj`** to check whether the page is loaded in the App
 # index.html
 **WebView Page 1**
 
-A sample page to test my project : WebViewApp
+A sample page to test my project : **WebViewApp**
 
 Check this page out **@** ![Project's Page](https://nishantsinghdev.github.io/WebViewApp/)
 
