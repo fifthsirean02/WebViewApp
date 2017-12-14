@@ -1,7 +1,7 @@
 # WebViewApp
 WebView App with **Kotlin**.
 
-An _Android App_ to create a _**WebWiew**_ to display Web Page from local storage.
+An Android App to create a _**WebWiew**_ to display _**Web Page**_ from _local storage_.
 
 Inject Kotlin's custom functions in JavaScript to exchange message between JavaScript and Kotlin.
 
