@@ -21,7 +21,9 @@ Check this page out @ https://fifthsirean02.github.io/WebViewApp/
 <img src="./screenshorts/Pic-1.png" width="300" />
 <img src="./screenshorts/Pic-2.png" width="300" />
 <img src="./screenshorts/Pic-3.png" width="300" />
-Pic-1 | Pic-2 | Pic-3 -
------ | ----- | ----- -
-Content from cell 1 | Content from cell 2 -
+
+
+First Header | Second Header
+------------ | -------------
+Content from cell 1 | Content from cell 2
 Content in the first column | Content in the second column
