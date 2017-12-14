@@ -23,7 +23,7 @@ Check this page out @ https://fifthsirean02.github.io/WebViewApp/
 <img src="./screenshorts/Pic-3.png" width="300" />
 
 
-First Header | Second Header | Third Header
------------- | ------------- | ------------
+Pic - 1 | Pic - 2 | Pic - 3
+------- | ------- | -------
 <img src="./screenshorts/Pic-1.png" width="300" /> | <img src="./screenshorts/Pic-2.png" width="300" /> | <img src="./screenshorts/Pic-3.png" width="300" />
 
