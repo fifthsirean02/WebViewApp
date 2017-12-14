@@ -1,5 +1,5 @@
 # WebViewApp
-WebView App with **Kotlin**.
+**WebView App** with **Kotlin**.
 
 An Android App in **Kotlin** to create a _**WebWiew**_ to display _**Web Page**_ from _online / cache memory / local storage_.
 
@@ -12,7 +12,7 @@ Use the newly obtained **`jObj`** to check whether the page is loaded in the App
 ---
 
 # index.html
-WebView Page 1
+**WebView Page 1**
 
 A sample page to test my project : WebViewApp
 
