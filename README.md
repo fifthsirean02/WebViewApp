@@ -23,6 +23,6 @@ Check this page out @ https://nishantsinghdev.github.io/WebViewApp/
 # Screenshots
 |  Web App - 1  |  Web App - 2  |  Web App - 3  |
 | :-----------: | :-----------: | :-----------: |
-| ![Pic-1](./screenshorts/Pic-1.png) | ![Pic-2](./screenshorts/Pic-2.png) | ![Pic-3](./screenshorts/Pic-3.png) |
+| ![Pic-1](./screenshots/Pic-1.png) | ![Pic-2](./screenshots/Pic-2.png) | ![Pic-3](./screenshots/Pic-3.png) |
 
 ---
