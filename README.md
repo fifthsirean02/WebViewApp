@@ -16,7 +16,7 @@ Use the newly obtained **`jObj`** to check whether the page is loaded in the App
 
 A sample page to test my project : **WebViewApp**
 
-Check this page out **@** ![Project's Page](https://nishantsinghdev.github.io/WebViewApp "Project's Page")
+Check this page out **@** [Project's Page]:https://nishantsinghdev.github.io/WebViewApp/
 
 ---
 
