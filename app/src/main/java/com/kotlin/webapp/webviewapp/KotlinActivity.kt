@@ -97,7 +97,7 @@ class KotlinActivity : AppCompatActivity() {
     companion object {                                                      // STEP - 01
         private val J_OBJ = "KT"
         private val INNER_URL = "file:///android_asset/WebViewApp/index.html"
-        private val BASE_URL = "https://fifthsirean02.github.io/WebViewApp/"
+        private val BASE_URL = "https://nishantsinghdev.github.io/WebViewApp/"
     } // End of Companion Object
 
     private val isNetworkAvailable: Boolean
